@@ -1,0 +1,479 @@
+.p-top {
+    // ロード画面
+    &-load {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+        z-index: 99999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__inner {
+
+        }
+
+        // ロゴ画像
+        &__img {
+            width: 110px;
+            margin: 0 auto;
+        }
+
+        // ロゴ下のテキスト文
+        &__txt {
+            text-align: center;
+            margin-top: 25px;
+            color: $color-main-blue;
+
+            p {
+                margin-top: 35px;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+    // スクロール下印
+    &__scroll {
+        z-index: 99999;
+        opacity: 1;
+        position: absolute;
+        color: #fff;
+        bottom: 12%;
+        right: 50px;
+
+        span {
+            position: absolute;
+            left:-15px;
+            top: -15px;
+        }
+
+        span::after {
+            content: "";
+            display: block;
+            width: 1px;
+            margin: 0 auto;
+            background: #fff;
+            animation: pathmove 1.4s ease-in-out infinite;
+            opacity:0;
+        }
+
+        @keyframes pathmove{
+            0%{
+                height:0;
+                top:0;
+                opacity: 0;
+            }
+            50%{
+                height:50px;
+                opacity: 1;
+            }
+            100%{
+                height:0;
+            }
+        }
+    }
+
+    // タイトル
+    &__title {
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        margin: 0 auto;
+        padding:  0.5rem 1rem 0.5rem 4rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+
+        &--blue {
+            color: #fff;
+            border: 1px solid #fff;
+            &::before {
+                background: #fff;
+            }
+            span {
+                color: $color-main-blue;
+            }
+        }
+
+        &--yellow {
+            color: #939597;
+            border: 1px solid #939597;
+
+            &::before {
+                background: #939597;
+            }
+
+            span {
+                color: $color-main-yellow;
+            }
+        }
+
+        &::before {
+            position: absolute;
+            top: -150%;
+            left: -100px;
+            width: 200px;
+            height: 300%;
+            content: '';
+            -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+        }
+
+        span {
+            font-size: 2.4rem;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            display: block;
+            padding-left: 16px;
+        }
+    }
+
+    // ボタン部分
+    &__btn {
+        width: 90%;
+        margin: 30px auto 0;
+        position: relative;
+        @include mq("md") {
+            width: 60%;
+        }
+    }
+
+    // リンク
+    &__link {
+        margin-top: 30px;
+    }
+
+    // ピックアップ部分
+    &-pickup {
+        &__wrapper {
+            width: 85%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        // 概要
+        &__overview {
+            margin: 35px auto 0;
+            font-weight: 500;
+            text-align: left;
+            @include mq("sm") {
+                width: 80%;
+            }
+
+            &--white {
+                color: #fff;
+            }
+
+            &--gray {
+                color: #939597;
+            }
+        }
+
+        // スキルリスト
+        &__skill {
+            display: none;
+            margin: 30px auto 0;
+
+            li {    
+                width: 50px;
+                margin-right: 9px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            @include mq("md") {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    // about部分
+    &-about {
+        color: #939597;
+        text-align: center;
+        width: 100%;
+        padding-top: 0%;
+        font-weight: 500;
+        @include mq("md") {
+            padding-top: 15%;
+            height: 100%;
+        }
+        
+        // 写真
+        &__img {
+            height: 100px;
+            width: 100px;
+            margin: 30px auto 0;
+            background-color: #000;
+            border-radius: 100%;
+            @include mq("md") {
+                display: none;
+            }
+        }
+        
+        // 名前
+        &__name {
+            font-size: 1.4rem;
+            margin-top: 30px;
+        }
+
+        // 年齢
+        &__age {
+            margin-top: 20px;
+            display: none;
+            @include mq("md") {
+                display: block;
+            }
+        }
+
+        // 経歴
+        &__career {
+            margin-top: 20px;
+        }
+    }
+    // Contact部分
+    &-contact {
+        color: #fff;
+        text-align: center;
+        height: auto;
+        width: 100%;
+        padding-top: 0%;
+        @include mq("md") {
+            padding-top: 15%;
+            height: 100%;
+        }
+
+        &__txtArea {
+            width: 70%;
+            margin: 10% auto;
+            text-align: left;
+            @include mq("md") {
+                margin: 65px auto;
+            }
+
+            p {
+                margin-top: 15px;
+            }
+        }
+
+        &__btn {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+            @include mq("md") {
+                width: 60%;
+            }
+        }
+    }
+}
+
+/*
+プラグイン部分の設定について
+*/
+#multiscroll-nav.right {
+    z-index: 99999;
+}
+
+// sp(１ページ目上部)とPC(１ページ目左側)の両方
+#left1 .sp-top{
+    display: flex;
+    height: 50%;
+    justify-content: center;
+    align-items: flex-end;
+    @include mq("md") {
+        font-size: 120px;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 60px;
+        color: rgba(0, 0, 0, .7);
+        @include mq("md") {
+            text-align: right;
+            font-size: 120px;
+            margin-right: 55px;
+        }
+    }
+}
+
+// sp(１ページ目下部)のみ表示
+#left1 .sp-bottom{
+    height: 50%;
+
+    p {
+        text-align: center;
+        color: rgba(0, 0, 0, .7);
+        font-size: 60px;
+    }
+    @include mq("md") {
+        display: none;
+    }
+}
+
+// pcのみ(１ページ目右側)
+#right1 {
+    p {
+        text-align: left;
+        color: rgba(0, 0, 0, .7);
+        margin-left: 55px;
+        font-size: 120px;
+    }
+}
+
+// 第２セクション＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#left2 .sp-top{
+    background-image: url("img/webinc_mockup.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40%;
+    // PC時は、画像ではなく背景色を設定する。
+    @include mq("md") {
+        display: none;
+    }
+}
+
+#left2 .sp-bottom{
+    background-color: #014C86 !important;
+    height: 60%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    @include mq("md") {
+        height: 100%;
+    }
+}
+
+#right2 {
+    background-image: url("img/top_webinc_mockup.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 9998;
+}
+
+// 第３セクション＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#left3 .sp-top{
+    background-image: url("img/tyaen_mockup.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    @include mq("md") {
+        height: 100%;
+        background-image: url("img/top_tyaen_mockup.jpg");
+    }
+}
+
+#left3 .sp-bottom{
+    background-color: #F5DF4D !important;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    @include mq("md") {
+        display: none;
+    }
+}
+
+#right3 {
+    background-color: $color-main-yellow !important;
+    z-index: 9998;
+}
+
+// 第４セクション＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#left4 .sp-top{
+    background-image: url("img/sf_mockup.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40%;
+    @include mq("md") {
+        display: none;
+    }
+}
+
+#left4 .sp-bottom{
+    height: 60%;
+    background-color: #014C86 !important;
+    display: flex;
+    align-items: center;
+    @include mq("md") {
+        height: 100%;
+    }
+}
+
+#right4 {
+    background-image: url("img/top_sf_mockup.jpg");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 9998;
+
+}
+
+// 第５セクション＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#left5 .sp-top{
+    background-color: #F5DF4D !important;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    @include mq("md") {
+        display: block;
+        height: 100%;
+    }
+}
+
+#left5 .sp-bottom{
+    background-color: #014C86 !important;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    @include mq("md") {
+        display: none;
+    }
+}
+
+#right5 {
+    background-color: #014C86 !important;
+    height: 100%;
+    z-index: 9998;
+}
+// =================================================================================================
+
+@media screen and (max-width:768px){
+    /*ライブラリで天地中央になっている見せ方を上揃えに上書き*/
+    .ms-tableCell{
+        vertical-align:top;
+    }
+    
+    /*右上ナビゲーションと右エリア非表示*/
+    #menu,
+    .ms-right{
+        display: none;
+    }
+    
+    /*左エリアを横幅100%にして画像＋テキストを出す設定*/
+    .ms-left{
+        width:100%!important;
+    }
+    
+    /*左エリア上部画像設定*/
+    .sp-top{
+        height:50%;
+    }
+        
+    #left1 .sp-top{
+        background-size:cover;
+    }	
+}

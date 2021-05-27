@@ -1,0 +1,16 @@
+.p-footer {
+    background-color: $color-main-blue;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-copyright {
+        color: #fff;
+        font-size: 0.8rem;
+        text-align: center;
+        @include mq("md") {
+
+        }
+    }
+}

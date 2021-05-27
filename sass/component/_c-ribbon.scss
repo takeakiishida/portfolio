@@ -1,0 +1,52 @@
+.c-ribbon {
+    line-height: 60px;
+    position: relative;
+    height: 60px;
+    width: 90%;
+    margin: 2em auto 1em;
+    padding: 0 2rem;
+    text-align: center;
+
+    &::before , &::after {
+        position: absolute;
+        top: 0;
+        display: block;
+        height: 48px;
+        content: '';
+    }
+    &::before {
+        left: -40px;
+        border-left-width: 15px;
+    }
+    &::after {
+        right: -40px;
+        border-right-width: 15px;
+    }
+
+    &--blue {
+        background: $color-main-blue;
+        color: #fff;
+        &::before , &::after {
+            border: 30px solid $color-main-blue;
+        }
+        &::before {
+            border-left-color: transparent;
+        }
+        &::after {
+            border-right-color: transparent;
+        }
+    }
+    &--yellow {
+        background: $color-main-yellow;
+        color: #fff;
+        &::before , &::after {
+            border: 30px solid $color-main-yellow;
+        }
+        &::before {
+            border-left-color: transparent;
+        }
+        &::after {
+            border-right-color: transparent;
+        }
+    }
+}

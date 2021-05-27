@@ -1,0 +1,14 @@
+.c-section__subtitle {
+    font-weight: 800;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0 auto;
+    &:after {
+        content: "";
+        display: block;
+        background: linear-gradient(left , $color-main-yellow 50% , $color-main-blue 50%);
+        height: 5px;
+        width: 80%;
+        margin: 0 auto;
+    }
+}

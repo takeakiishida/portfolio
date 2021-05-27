@@ -1,0 +1,374 @@
+/*
+works一覧のページ--------------------------------------------------------------------
+*/
+.p-works {
+    // ソートボタン
+    &-sort{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding:50px 20px;
+        @include mq("sm") {
+            justify-content: center;
+        }
+
+        li {
+            background:#eee;
+            border-radius:10px;
+            cursor: pointer;
+            padding: 10px;
+            text-align:center;
+            width:48%;
+            margin:0 0 10px 0;
+            @include mq("sm") {
+                width: auto;
+                margin:0 10px;
+            }
+        }
+
+        .is-active{/*ボタンに現在地＝activeというクラス名がついたら背景色を変更*/
+            background: $color-main-blue;
+            color: #fff;
+        }
+    }
+
+    // コンテンツ
+    &-list {
+        position: relative;/*並び替えの基準点を指定*/
+        width: 90%;
+        margin: 0 auto;
+
+        // 1作品ごとの領域
+        &__item {
+            display: block;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+            list-style:none;
+            a {
+                color: #000;
+            }
+            @include mq("sm") {
+                width: 33%;
+            }
+        }
+
+        /*内側のボックスの高さが崩れないように維持*/
+        &__inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        // 説明文エリア
+        &__desc {
+            padding: 0.8rem 0 2.8rem;
+            text-align: center;
+            @include mq("sm") {
+                text-align: left;
+            }
+
+            // サイトカテゴリー
+            .category {
+                font-size: 0.9rem;
+                padding: 0.3rem;
+                background-color: #000;
+                color: #fff;
+                border-radius: 7px;
+
+                &--class {
+                    background-color: #fff;
+                    color: #000;
+                    border: 1px solid #000;
+                }
+
+                &--web {
+                    background-color: tomato;
+                }
+
+                &--logo {
+                    background-color: cornflowerblue;
+                }
+
+                &--banner {
+                    background-color: mediumaquamarine;
+                }
+            }
+
+            // サイトタイトル
+            h3 {
+                font-size: 1.1rem;
+                padding-top: 0.4rem;
+            }
+
+            // 担当領域
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    // TOPに戻るボタン
+    &-btn {
+        text-align: center;
+        margin: 65px 0;
+    }
+}
+
+/*
+work詳細のページ--------------------------------------------------------------------
+*/
+.p-workDetails {
+    margin: 120px auto;
+    width: 85%;
+    max-width: 1100px;
+
+    // 作品タイトル
+    &-title {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    // 作品サブタイトル
+    &-subtitle {
+        font-size: 1rem;
+        text-align: center;
+
+        &::before, &::after{
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 3px;
+            vertical-align: middle;
+            @include mq("sm") {
+                width: 50px;
+            }
+        }
+
+        &::before {
+            margin-right: 10px;
+            background-color: $color-main-yellow;
+        }
+
+        &::after {
+            margin-left: 10px;
+            background-color: $color-main-blue;
+        }
+
+        @include mq("sm") {
+            font-size: 1.1rem;
+        }
+    }
+
+    // 作品画像エリア
+    &-img {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+
+        img {
+            // width: 100%;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    // 作品情報全体のwrapper
+    &-info {
+        margin: 40px auto;
+        width: 100%;
+        @include mq("md") {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        // 作品情報エリア
+        &__left, &__right {
+            width: 100%;
+            @include mq("md") {
+                width: 48%;
+            }
+        }
+
+        // 表（詳細情報）
+        table {
+            width: 100%;
+            border: 1px solid #c4c4c4;
+
+            tr {
+                border-bottom: 1px solid #c4c4c4;
+            }
+
+            th {
+                width: 30%;
+                text-align: center;
+                background-color: #608ACB;
+                padding: 10px 0;
+                color: #fff;
+            }
+
+            td {
+                width: 70%;
+                text-align: center;
+                padding: 10px 8px;
+
+                a {
+                    color: #000;
+                }
+            }
+        }
+        
+        // 作品情報（文章エリア）
+        &__item {
+            margin-bottom: 30px;
+            h4 {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    // サイトを見るボタン
+    &-btn {
+        width: 70%;
+        margin: 60px auto;
+        text-align: center;
+        position: relative;
+    }
+
+    // コンセプトエリア
+    &-concept {
+        // 縦線
+        &__verticalLine {
+            display: block;
+            background-color: $color-main-gray;
+            width: 1px;
+            height: 210px;
+            margin: 0 auto;
+        }
+
+        // 概要
+        &__overview {
+            margin: 20px 0 50px;
+            text-align: left;
+            @include mq("md") {
+                margin: 20px 0 80px;
+                text-align: center;
+            }
+
+            p {
+                line-height: 3.4;
+            }
+        }
+
+        &__wrapper {
+
+        }
+
+        // ポイント（画像＋説明文エリア）
+        &__item {
+            margin-bottom: 55px;
+            @include mq("md") {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 115px;
+
+            }
+        }
+
+        // ポイント（画像）
+        &__left {
+            width: 100%;
+            margin-bottom: 2.2rem;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+            @include mq("md") {
+                width: 48%;
+                margin-bottom: 0;
+            }
+        }
+
+        // ポイント（説明文）
+        &__right {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            @include mq("md") {
+                width: 48%;
+            }
+        }
+
+        // 説明文
+        &__desc {
+            width: 100%;
+            position: relative;
+            padding: 1rem 2rem;
+            text-align: left;
+            color: #0075a9;
+            border-radius: 0 10px 10px 10px;
+            background: #d8ecf5;
+
+            &::before {
+                font-family: 'Font Awesome 5 Free';
+                font-size: 1.2rem;
+                position: absolute;
+                top: -2.1rem;
+                left: 0;
+                height: 2.1rem;
+                padding: 0 1em;
+                content: '\f0a4  Point';
+                color: #fff;
+                border-radius: 10px 10px 0 0;
+                background: #0075a9;
+            }
+        }
+    }
+}
+
+/* works一覧で、作品をhoverした際の動作について */
+.bgLR{
+	position:relative;
+}
+
+.bgLR span.mask{
+	position:relative;
+    display: block;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.bgLR span.mask::before{
+	content:"";
+	position: absolute;
+	z-index: 2;
+    background:rgba(63, 63, 63, 0.7);
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	transition: transform .3s cubic-bezier(0.8, 0, 0.2, 1) 0s;/*移り変わる速さを変更したい場合はこの数値を変更*/
+	transform: scale(0, 1);
+	transform-origin: center;
+}
+
+.p-works-list__inner a:hover span.mask::before{
+	transform:scale(1, 1);
+}
+
+.bgLR span.cap{
+	opacity:0;
+	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+	position: absolute;
+	z-index:3;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+    line-height: 1.5;
+}
+
+.p-works-list__inner:hover span.cap{
+	opacity:1;
+}

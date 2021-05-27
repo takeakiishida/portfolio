@@ -1,0 +1,103 @@
+.p-contact {
+    padding-bottom: 50px;
+
+    &__txt {
+        text-align: center;
+        padding: 0 16px;
+    }
+
+    &-wrapper {
+        width: 90%;
+        margin: 40px auto;
+        @include mq("lg") {
+            width: 60%;
+        }
+    }
+
+    &-txt {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    &-item {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+
+        dt {
+            width: 100%;
+            display: flex;
+            @include mq("lg") {
+                width: 25%;
+                justify-content: space-between;
+            }
+        }
+
+        dd {
+            width: 100%;
+            @include mq("lg") {
+                width: 70%;
+            }
+        }
+
+        // 必須項目ラベル
+        &__mandatory {
+            background-color: tomato;
+            color: #fff;
+            padding: 0 5px;
+            display: inline-block;
+            height: auto;
+            margin-left: 10px;
+            margin-bottom: 7px;
+            border-radius: 8px;
+            @include mq("lg") {
+                margin-left: 0px;
+                height: 30px;
+                margin-bottom: 0;
+            }
+        }
+
+        // 入力欄
+        &__input {
+            width: 100%;
+            height: 40px;
+            padding: 3px 8px;
+            font-size: 100%;
+            display: block;
+            font-family: inherit;
+        }
+
+        // 問い合わせ内容入力欄
+        &__txtarea {
+            height: 140px;
+            width: 100%;
+            padding: 8px 8px;
+            font-size: 100%;
+            font-family: inherit;
+        }
+
+        // 送信ボタン
+        &__send {
+            position: relative;
+            
+            input {
+                cursor: pointer;
+                background-color: $color-main-blue;
+                color: #fff;
+                width: 180px;
+                height: 58px;
+                border-radius: 12px;
+                display: block;
+                margin: 0 auto;
+                font-size: 100%;
+                font-family: inherit;
+                border: none;
+                position: relative;
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+}

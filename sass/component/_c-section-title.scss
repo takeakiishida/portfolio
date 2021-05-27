@@ -1,0 +1,33 @@
+.c-section__title {
+    margin-top: 130px;
+    font-weight: bold;
+    color: $color-main-blue;
+
+    position: relative;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	font-size: 26px;
+	text-align: center;
+    z-index: 999;
+
+    &::before {
+        content: attr(data-en);
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(245, 223, 77, .5);
+        font-size: 80px;
+        font-style: italic;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%) rotate(30deg);
+        width: 1px;
+        height: 40px;
+        background-color: rgba(245,223,77,1);
+    }
+}
